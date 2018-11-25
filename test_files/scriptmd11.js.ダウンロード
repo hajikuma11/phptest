@@ -1,0 +1,56 @@
+
+function setServiceDay(dd) {
+	var year_mon = document.getElementById("ServiceMonth").value;
+	var year = year_mon.substr(0, 4);
+	var mon = year_mon.substr(4, 2);
+	var lastDay = getDaysOfMonth(year, mon);
+	var day;
+	
+	var serviceDay = document.getElementById("ServiceDay");
+	
+	if(dd) {
+		day = dd;
+	} else {
+		day = serviceDay.value;
+	}
+	serviceDay.length = 0;
+	for (var idx = 1; idx <= lastDay; idx++) {
+		serviceDay.length++;
+		serviceDay.options[serviceDay.length - 1].text  = idx + "“ú";
+		if(idx < 10) {
+			serviceDay.options[serviceDay.length - 1].value = "0" + idx;
+		} else {
+			serviceDay.options[serviceDay.length - 1].value = idx;
+		}
+		
+		if(day) {
+			if(idx == parseInt(day, 10)) {
+				serviceDay.options[serviceDay.length - 1].selected = true;
+			} else {
+				serviceDay.options[serviceDay.length - 1].selected = false;
+			}
+		} else {
+			serviceDay.options[serviceDay.length - 1].selected = false;
+		}
+	}
+	
+	if(dd) {
+		if(parseInt(dd, 10) < 10) {
+			serviceDay.value = "0" + dd;
+		} else {
+			serviceDay.value = dd;
+		}
+	}
+	
+	//setTitleDate();
+}
+
+function getDaysOfMonth(y, m){
+	var lastDay = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+	
+	if (((y % 4 == 0) && (y % 100 != 0)) || (y % 400 == 0)) {
+		lastDay[1] = 29;
+	}
+	
+	return lastDay[m - 1];
+}

@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+/* 新規CSS */
+/*@import url("reset.css");*/ /* 2010.10.14 コメントアウト */
+@import url("style.css");
+
+/* 既存CSSに追加 */
+@import url("style_timetable.css"); 
+

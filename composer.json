@@ -1,0 +1,12 @@
+{
+    "name": "hajim/sc-test",
+    "authors": [
+        {
+            "name": "hajikuma11",
+            "email": "hajimekuma11@gmail.com"
+        }
+    ],
+    "require": {
+        "electrolinux/phpquery": "^0.9.6"
+    }
+}
